@@ -5,7 +5,7 @@ function Header() {
 	return (
 		<div className={styles.container}>
 			<p className={styles.heading}>
-				<span>ResumeFix</span>
+				<span>Resume-builder</span>
 			</p>
 		</div>
 	);
