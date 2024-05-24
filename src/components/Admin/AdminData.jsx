@@ -15,7 +15,6 @@ export default function AdminData() {
 		(async () => {
 			const res = await Axios.get(`${baseUrl}/api/user-details`);
 
-			console.log(res.data);
 			setUsers(res.data);
 		})();
 	}, []);

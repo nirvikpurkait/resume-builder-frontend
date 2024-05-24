@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Axios } from "../../utils/axios";
 import { getCookie } from "../../utils/get-cookie";
 import Spinner from "../Spinner/Spinner";
+import { baseUrl } from "../../utils/baseurl";
 
 export default function UploadResume() {
 	const formRef = useRef(null);
@@ -12,11 +13,12 @@ export default function UploadResume() {
 
 		const formData = new FormData(formRef.current);
 		setIsUploading(true);
-		const res = await Axios.post("/api/upload-resume", formData, {
+		const res = await Axios.post(`${baseUrl}/api/upload-resume`, formData, {
 			headers: {
 				"Content-Type": "multipart/form-data",
 				username: getCookie("username"),
 			},
+			method: "post",
 		});
 
 		setIsUploading(false);
